@@ -6,7 +6,7 @@
         function LunchCheckController($scope) {
             $scope.inputstring = "";
             $scope.fourthoption = "";
-            $scope.message = "please enter data first";
+            $scope.message = "";
             $scope.words ="";
             
             $scope.CheckTooMuch = function () {
