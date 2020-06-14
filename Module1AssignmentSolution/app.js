@@ -6,24 +6,26 @@
         function LunchCheckController($scope) {
             $scope.inputstring = "";
             $scope.fourthoption = "";
-            $scope.sayMessage = function () {
-                if (inputstring == "") {
-                    return "please enter data first";
+            $scope.message = "please enter data first";
+            $scope.words ="";
+            
+            $scope.CheckTooMuch = function () {
+                $scope.fourthoption = "";
+                $scope.words = $scope.inputstring.split(',');
+                if ($scope.words[3] != null) {
+                    $scope.fourthoption = $scope.words[3];
+                }
+                if ($scope.inputstring == "") {
+                    $scope.message = "please enter data first";
                 } else {
-
-                    if (fourthoption = "") {
-                        return "enjoy!";
+                    if ($scope.fourthoption == "") {
+                        $scope.message = "enjoy!";
                     } else {
-                        return "too Much!";
+                        $scope.message = "too Much!";
                     }
                 }
-            }
-            $scope.CheckTooMuch = function () {
-                const words = inputstring.split(",");
-                fourthoption = words[3];
+                }
             }
         }
-
-    }
   
 )();
