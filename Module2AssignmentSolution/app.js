@@ -5,31 +5,25 @@
         .controller('AlreadyBoughtController', AlreadyBoughtController)
         .service('ShoppingListCheckOffService', ShoppingListCheckOffService);
     ToBuyController.$inject = ['ShoppingListCheckOffService'];
-    AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
+    
     function ToBuyController(ShoppingListCheckOffService) {
         var itemBuy = this;
-       // try {
+   
            itemBuy.items = ShoppingListCheckOffService.getbuy();
-          //  itemBuy.length = itemBuy.items.length;
-        //} catch (error) {
-         //   itemBuy.errorMessage = error.message;
-        //}
-        itemBuy.num = ShoppingListCheckOffService.getbuycheck();
+         
+   
         itemBuy.buyItem = function (itemIndex) {
                 ShoppingListCheckOffService.buyItem(itemIndex); 
             
         };
     }
+    AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
     function AlreadyBoughtController(ShoppingListCheckOffService) {
         var itemBought = this;
         
-       // try {
+    
         itemBought.items = ShoppingListCheckOffService.getbought();
-        itemBought.num = ShoppingListCheckOffService.boughtcheck();
-           // itemBought.length = itemBought.items.length;
-        //} catch (error) {
-       //     itemBought.errorMessage = error.message;
-       // }
+        
     
     }
     function ShoppingListCheckOffService() {
@@ -46,8 +40,6 @@
         tobuyI.push(item4);
         var item5 = { name: "apple", quantity: 1 };
         tobuyI.push(item5);
-        var buycount = tobuyI.length;
-        var boughtcount = boughtI.length;
         service.buyItem = function (itemIndex) {
             var tempnum = tobuyI[itemIndex].quantity;
             var tempname = tobuyI[itemIndex].name;
@@ -60,12 +52,6 @@
         }
         service.getbought = function () {
                 return boughtI;
-        }
-        service.getbuycheck = function () {
-            return tobuyI.length;
-        }
-        service.boughtcheck = function () {
-            return boughtI.length;
         }
     }
 }
