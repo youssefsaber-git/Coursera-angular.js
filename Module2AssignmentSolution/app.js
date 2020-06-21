@@ -8,11 +8,13 @@
     AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
     function ToBuyController(ShoppingListCheckOffService) {
         var itemBuy = this;
-        try {
-            itemBuy.items = ShoppingListCheckOffService.getbuy();
-        } catch (error) {
-            itemBuy.errorMessage = error.message;
-        }
+       // try {
+           itemBuy.items = ShoppingListCheckOffService.getbuy();
+          //  itemBuy.length = itemBuy.items.length;
+        //} catch (error) {
+         //   itemBuy.errorMessage = error.message;
+        //}
+        itemBuy.num = ShoppingListCheckOffService.getbuycheck();
         itemBuy.buyItem = function (itemIndex) {
                 ShoppingListCheckOffService.buyItem(itemIndex); 
             
@@ -20,12 +22,15 @@
     }
     function AlreadyBoughtController(ShoppingListCheckOffService) {
         var itemBought = this;
-        try {
-            itemBought.items = ShoppingListCheckOffService.getbought();
-        } catch (error) {
-            itemBought.errorMessage = error.message;
-        }
-
+        
+       // try {
+        itemBought.items = ShoppingListCheckOffService.getbought();
+        itemBought.num = ShoppingListCheckOffService.boughtcheck();
+           // itemBought.length = itemBought.items.length;
+        //} catch (error) {
+       //     itemBought.errorMessage = error.message;
+       // }
+    
     }
     function ShoppingListCheckOffService() {
         var service = this;
@@ -41,6 +46,8 @@
         tobuyI.push(item4);
         var item5 = { name: "apple", quantity: 1 };
         tobuyI.push(item5);
+        var buycount = tobuyI.length;
+        var boughtcount = boughtI.length;
         service.buyItem = function (itemIndex) {
             var tempnum = tobuyI[itemIndex].quantity;
             var tempname = tobuyI[itemIndex].name;
@@ -49,18 +56,16 @@
             boughtI.push(temp);
         };
         service.getbuy = function () {
-            if (tobuyI.length > 0) {
                 return tobuyI;
-            } else {
-                throw new Error("all items bought");
-            }
         }
         service.getbought = function () {
-           // if (boughtI.length = 0) {
                 return boughtI;
-           // } else {
-            //    throw new Error("nothing bought yet");
-           // }
+        }
+        service.getbuycheck = function () {
+            return tobuyI.length;
+        }
+        service.boughtcheck = function () {
+            return boughtI.length;
         }
     }
 }
