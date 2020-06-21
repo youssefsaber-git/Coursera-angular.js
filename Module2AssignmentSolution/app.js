@@ -42,22 +42,25 @@
         var item5 = { name: "apple", quantity: 1 };
         tobuyI.push(item5);
         service.buyItem = function (itemIndex) {
-            var temp = tobuyI.splice(itemIndex, 1);
+            var tempnum = tobuyI[itemIndex].quantity;
+            var tempname = tobuyI[itemIndex].name;
+            tobuyI.splice(itemIndex, 1);
+            var temp = {name:tempname,quantity:tempnum};
             boughtI.push(temp);
         };
         service.getbuy = function () {
-            if (tobuyI.length !== 0) {
+            if (tobuyI.length > 0) {
                 return tobuyI;
             } else {
                 throw new Error("all items bought");
             }
         }
         service.getbought = function () {
-            if (boughtI.length !== 0) {
+           // if (boughtI.length = 0) {
                 return boughtI;
-            } else {
-                throw new Error("nothing bought yet");
-            }
+           // } else {
+            //    throw new Error("nothing bought yet");
+           // }
         }
     }
 }
