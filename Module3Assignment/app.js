@@ -15,6 +15,9 @@
                 found = MenuSearchService.getMatchedMenuItems(search);
             }
         }
+        menu.removeitem=function(index){
+            found.splice(index,1);
+        }
 
     }
     MenuSearchService.$inject = ['$http', 'ApiBasePath'];
