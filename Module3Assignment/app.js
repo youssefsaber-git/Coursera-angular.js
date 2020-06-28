@@ -11,7 +11,7 @@
            restrict: "AE",
             templateUrl: 'founditems.html',
             scope: {
-                items : '<menu',
+                items : '<',
                 onRemove: '&'
             },
         };
