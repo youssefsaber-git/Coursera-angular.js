@@ -7,44 +7,46 @@
         .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com/menu_items.json");
         
    function foundItemsDirective() {
-        var ddo = {
+       var ddo = {
+           restrict: "AE",
             templateUrl: 'founditems.html',
             scope: {
                 founditems: '<',
                 onRemove: '&'
             },
-            controller: founditemsController,
-            controllerAs: 'menu',
-            bindToController: true
         };
-
         return ddo;
-    }
-    function founditemsController(){
-        var menu = this;
     }
     NarrowItDownController.$inject=['MenuSearchService'];
     function NarrowItDownController(MenuSearchService) {
         var menu = this;
         var search = "";
-        var promise;
+        var menuitems;
+        var promise
         var found = [];
+        menu.found = MenuSearchService.getmenu();
         menu.narrowit = function () {
-            menu.found= MenuSearchService.getMatchedMenuItems(menu.search);
-            
-            console.log(menu.found);
-        }
+            if (menu.search !== "") {
+                var promise = MenuSearchService.getMatchedMenuItems(menu.search);
+                promise.then(function () {
+                    menu.found = MenuSearchService.getmenu();
+                });
+            } else {
+                menuitems = [];
+            }
+        console.log(menu.found)}
         menu.removeitem=function(index){
-            found.splice(index,1);
+            MenuSearchService.removeoption(index);
         }
 
     }
-    MenuSearchService.$inject = ['$http', 'ApiBasePath'];
+    MenuSearchService.$inject = ['$http', 'ApiBasePath','$q','$timeout'];
     function MenuSearchService($http, ApiBasePath) {
         var service = this;
+        var menuitems = [];
         service.getMatchedMenuItems = function (searchTerm) {
             console.log("try");
-            return $http({
+           return $http({
                 method: "GET",
                 url: (ApiBasePath)
             }
@@ -55,11 +57,16 @@
                         foundItems.push(result.data.menu_items[x]);
                     }
                 }
+                menuitems = foundItems;
                 return foundItems;
-            });
-           
+            })
         }
-
+        service.getmenu=function(){
+            return menuitems;
+        }
+        service.removeoption=function(index){
+            menuitems.splice(index, 1);
+        }
     };
 
 })();
