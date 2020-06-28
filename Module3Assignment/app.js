@@ -33,7 +33,6 @@
             menu.found= MenuSearchService.getMatchedMenuItems(menu.search);
             
             console.log(menu.found);
-            console.log(menu.found);
         }
         menu.removeitem=function(index){
             found.splice(index,1);
