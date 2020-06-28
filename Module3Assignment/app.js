@@ -3,17 +3,37 @@
     angular.module('NarrowItDownApp', [])
         .controller('NarrowItDownController',NarrowItDownController)
         .service('MenuSearchService', MenuSearchService)
+      .directive('foundItems', foundItemsDirective)
         .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com/menu_items.json");
+        
+   function foundItemsDirective() {
+        var ddo = {
+            templateUrl: 'founditems.html',
+            scope: {
+                founditems: '<',
+                onRemove: '&'
+            },
+            controller: founditemsController,
+            controllerAs: 'menu',
+            bindToController: true
+        };
 
-    NarrowItDownController.$inject['MenuSearchService'];
+        return ddo;
+    }
+    function founditemsController(){
+        var menu = this;
+    }
+    NarrowItDownController.$inject=['MenuSearchService'];
     function NarrowItDownController(MenuSearchService) {
         var menu = this;
         var search = "";
-        var found=[];
+        var promise;
+        var found = [];
         menu.narrowit = function () {
-            if (search !== "") {
-                found = MenuSearchService.getMatchedMenuItems(search);
-            }
+            menu.found= MenuSearchService.getMatchedMenuItems(menu.search);
+            
+            console.log(menu.found);
+            console.log(menu.found);
         }
         menu.removeitem=function(index){
             found.splice(index,1);
@@ -23,19 +43,22 @@
     MenuSearchService.$inject = ['$http', 'ApiBasePath'];
     function MenuSearchService($http, ApiBasePath) {
         var service = this;
-        service.getMatchedMenuItems=function(searchTerm){
+        service.getMatchedMenuItems = function (searchTerm) {
+            console.log("try");
             return $http({
                 method: "GET",
                 url: (ApiBasePath)
-            }).then(function (result) {
+            }
+            ).then(function (result) {
                 var foundItems = [];
-                for (var x = 0; x < result.length; x++) {
-                    if (result[x].description.includes(searchTerm)) {
-                        foundItems.push(result[x]);
+                for (var x = 0; x < result.data.menu_items.length; x++) {
+                    if (result.data.menu_items[x].description.includes(searchTerm)) {
+                        foundItems.push(result.data.menu_items[x]);
                     }
                 }
                 return foundItems;
             });
+           
         }
 
     };
