@@ -3,12 +3,9 @@
     angular.module('MenuApp').
         component('categories', {
             TemplateUrl: 'src/templates/categorytemplate.html',
-            controller: categoriesComponentController,
             bindings: {
-                categorylist: '<',
+                items: '<',
                 onRemove: '&'
             }
         });
-    function categoriesComponentController() {
-    }
 }) ();

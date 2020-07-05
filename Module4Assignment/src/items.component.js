@@ -3,12 +3,9 @@
     angular.module('MenuApp').
         component('items', {
             TemplateUrl: 'src/templates/itemtemplate.html',
-            controller: itemsComponentController,
             bindings: {
-                itemlist: '<',
+                items: '<',
                 onRemove: '&'
             }
         });
-    function itemsComponentController() {
-    }
 })();

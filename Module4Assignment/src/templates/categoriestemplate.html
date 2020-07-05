@@ -6,6 +6,11 @@
     <title></title>
 </head>
 <body>
-    <categories items="Ccontrol.items"></categories>
+    <ul>
+        <li ng-repeat="item in $ctrl.items"
+            ui-sref="">
+            {{item.name}}
+        </li>
+    </ul>
 </body>
 </html>
