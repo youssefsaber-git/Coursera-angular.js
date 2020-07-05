@@ -20,12 +20,12 @@
             .state('categories', {
                 url: '/categories',
                 templateUrl: 'src/templates/categorytemplate.html',
-                controller: ' as mainList',
-                resolve: {
-                    items: ['MenuDataService', function (MenuDataService) {
-                        return MenuDataService.getAllCategories();
-                    }]
-                }
+                //controller: ' as mainList',
+               // resolve: {
+              //      items: ['MenuDataService', function (MenuDataService) {
+             //           return MenuDataService.getAllCategories();
+              //     }]
+              //  }
             })
     }
 })();

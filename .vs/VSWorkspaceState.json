@@ -4,8 +4,10 @@
     "\\Module3Assignment",
     "\\Module4Assignment",
     "\\Module4Assignment\\lib",
-    "\\Module4Assignment\\src"
+    "\\Module4Assignment\\src",
+    "\\Module4Assignment\\src\\templates",
+    "\\Module4Assignment\\styles"
   ],
-  "SelectedNode": "\\Module4Assignment\\lib\\angular.min.js",
+  "SelectedNode": "\\Module4Assignment\\src\\templates\\hometemplate.html",
   "PreviewInSolutionExplorer": false
 }
