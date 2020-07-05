@@ -1,10 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Module1",
-    "\\Module1AssignmentSolution",
-    "\\Module2AssignmentSolution"
+    "\\Module3Assignment",
+    "\\Module4Assignment",
+    "\\Module4Assignment\\lib",
+    "\\Module4Assignment\\src"
   ],
-  "SelectedNode": "\\Module2AssignmentSolution",
+  "SelectedNode": "\\Module4Assignment\\lib\\angular.min.js",
   "PreviewInSolutionExplorer": false
 }
