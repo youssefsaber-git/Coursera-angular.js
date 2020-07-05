@@ -9,7 +9,7 @@
     function MenuDataService($http, ApiBasePath,itemsPath) {
         var service = this;
         service.getAllCategories = function () {
-            return $http({
+           var result= $http({
                 method: "GET",
                 url: (ApiBasePath)
             }
@@ -18,9 +18,10 @@
                  Catagories = result.data;
                 return Catagories;
             })
+            return result;
         }
         service.getItemsForCategory = function (categoryShortName) {
-            return $http({
+            var result= $http({
                 method: "GET",
                 url: (itemsPath + categoryShortName)
             }
@@ -29,6 +30,7 @@
                 items = result.data.menu_items;
                 return items;
             })
+            return result;
         }
         }
 })();

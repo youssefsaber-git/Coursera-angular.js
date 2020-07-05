@@ -5,7 +5,6 @@
             TemplateUrl: 'src/templates/categoriestemplate.html',
             bindings: {
                 items: '<',
-                onRemove: '&'
             }
         });
 }) ();
