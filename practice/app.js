@@ -9,7 +9,8 @@
             restrict: "AE",
             templateUrl: 'example.html',
             scope: {
-                menu: '<items',
+                name: '<',
+                des:'<',
                 onRemove: '&'
             },
         };
