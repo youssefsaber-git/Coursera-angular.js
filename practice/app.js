@@ -17,8 +17,8 @@
     }
     function itemctrl() {
         var item = this;
-        item.name = "";
-        item.description = "";
+        item.name = "gold";
+        item.description = "precious metal";
 
     }
 }
