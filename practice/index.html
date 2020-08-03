@@ -8,6 +8,11 @@
 <body>
     <script src="angular.js"></script>
     <script src="app.js"></script>
-    <example></example>
+    <div ng-controller='itemctrl as item'>
+        <input ng-model="item.name"><br>
+        <input ng-model="item.description"><br>
+        {{item.name}}{{item.description}}
+        <example></example>
+    </div>
 </body>
 </html>
