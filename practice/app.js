@@ -1,7 +1,8 @@
 // JavaScript source code
 (function () {
     'use strict';
-    angular.module('exApp', []).controller('itemctrl',itemctrl)
+    angular.module('exApp', [])
+        .controller('itemctrl', itemctrl)
         .directive('example', exampleDirective);
     function exampleDirective() {
         var ddo = {
