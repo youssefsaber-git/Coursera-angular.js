@@ -24,6 +24,7 @@
         item.save = function () {
             var temp = { name: item.name, des: item.description };
             item.book.push(temp);
+            Console.log(item.book);
         }
     }
 }
