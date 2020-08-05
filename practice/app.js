@@ -18,9 +18,13 @@
     }
     function itemctrl() {
         var item = this;
+        item.book = [];
         item.name = "gold";
         item.description = "precious metal";
-
+        item.save = function () {
+            var temp = { name: item.name, des: item.description };
+            item.book.push(temp);
+        }
     }
 }
 )();

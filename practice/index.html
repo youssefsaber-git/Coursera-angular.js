@@ -11,7 +11,11 @@
     <div ng-controller='itemctrl as item'>
         <input ng-model="item.name"><br>
         <input ng-model="item.description"><br>
+        <button ng-click="item.save()">save item</button><br>
         <!------>
+        <ul>
+            <li ng-repeat="sel in item.menu">{{sel.name}}     {{sel.description}}</li>
+            </ul><br>
         <example name="item.name" des="item.description"></example>
     </div>
 </body>
