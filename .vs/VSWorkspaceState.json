@@ -1,13 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\m4",
     "\\m4\\styles",
-    "\\Module4Assignment",
+    "\\Module2AssignmentSolution",
     "\\Module4Assignment\\lib",
     "\\Module4Assignment\\src",
-    "\\Module4Assignment\\src\\templates"
+    "\\Module4Assignment\\src\\templates",
+    "\\practice"
   ],
-  "SelectedNode": "\\Module4Assignment\\src\\data.module.js",
+  "SelectedNode": "\\practice\\example.html",
   "PreviewInSolutionExplorer": false
 }
