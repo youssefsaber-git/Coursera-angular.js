@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular.module('MenuApp').
-        component('found', {
+        component('foundlist', {
             TemplateUrl: 'src/templates/found.template.html',
           //  controller: foundComponentController,
             bindings: {

@@ -19,7 +19,7 @@
             })
             .state('categories', {
                 url: '/categories',
-                templateUrl: 'src/templates/found.template.html',
+                templateUrl: 'src/templates/category.template.html',
                /*controller: 'categoryController as Ccontrol',
                resolve: {
                    items: ['MenuDataService', function (MenuDataService) {
