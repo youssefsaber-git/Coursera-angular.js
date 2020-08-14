@@ -19,13 +19,13 @@
             })
             .state('categories', {
                 url: '/categories',
-                templateUrl: 'src/templates/categorytemplate.html',
-                controller: 'categoriesController as Ccontrol',
+                templateUrl: 'src/templates/found.template.html',
+               /*controller: 'categoryController as Ccontrol',
                resolve: {
                    items: ['MenuDataService', function (MenuDataService) {
                       return MenuDataService.getAllCategories();
                    }]
-                }
+                }*/
             })
     }
 })();
